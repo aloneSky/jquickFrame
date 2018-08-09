@@ -1,5 +1,8 @@
 package com.quickwork.main.sys.login;
 
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,6 +18,7 @@ public class LoginController {
 	public UserDao userDao;
 	@RequestMapping("login")
 	public String login(Model model){
+		List<Map<String, Object>> users = userDao.find();
 		model.addAttribute("name", "this is thymeleaf name!!");
 		return "hello";
 	}
